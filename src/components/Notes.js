@@ -68,10 +68,11 @@ export default function App() {
 	const [id, setId] = useState("");
 
 	useEffect(() => {
+		fetchNotes(dispatch);
+
 		Auth.currentUserPoolUser()
 			.then((data) => {
 				setId(data.username);
-				fetchNotes(dispatch);
 			})
 			.catch((err) => {
 				console.log(err);
